@@ -18,7 +18,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList overflow={"auto"} height="50vh">
-        {data.map((platform) => {
+        {data?.results.map((platform) => {
           return (
             <MenuItem
               key={platform.id}
