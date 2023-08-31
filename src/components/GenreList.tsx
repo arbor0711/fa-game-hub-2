@@ -5,8 +5,6 @@ import {
   Image,
   List,
   ListItem,
-  Spinner,
-  Text,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "./../services/image-url";
@@ -17,17 +15,17 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  // I do not change the below line to not affect any other component that is dependent to it.
+  // When I hover on data I saw const data: any ===> So I should go to useGenres and provide a generic type argument
   const { data, isLoading, error } = useGenres();
-  // if (error) return null;
-  // if (isLoading) return <Spinner />;
   return (
     <>
       <Heading fontSize="2xl" mb={3}>
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {/* I've got an error here that said Parameter 'genre' implicitly has an 'any' type. */}
+        {/* After solving previous error, I got another one said 'data' is possibly 'undefined'. Which make sense because my call to the server might fail. So I should use OPTIONAL CHAINING ?  */}
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack
               bgColor={selectedGenre?.name === genre.name ? "ButtonFace" : ""}
