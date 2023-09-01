@@ -12,6 +12,7 @@ export interface Genre {
 
 const useGenres = () =>
   useQuery({
+    // I've got error "No overload matches this call."
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
     initialData: { count: genre.length, results: genre },

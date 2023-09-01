@@ -11,6 +11,7 @@ export interface Platform {
 
 const usePlatforms = () =>
   useQuery({
+    // I've got error "No overload matches this call."
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, //24h
