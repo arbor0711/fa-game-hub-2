@@ -11,10 +11,11 @@ import getCroppedImageUrl from "./../services/image-url";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  // I will change the name for consistency
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   // When I hover on data I saw const data: any ===> So I should go to useGenres and provide a generic type argument
   const { data, isLoading, error } = useGenres();
   return (
@@ -28,7 +29,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack
-              bgColor={selectedGenre?.name === genre.name ? "ButtonFace" : ""}
+              bgColor={selectedGenreId === genre.id ? "ButtonFace" : ""}
               rounded={"base"}
               p={1}
             >
@@ -40,7 +41,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               />
               <Button
                 onClick={() => onSelectGenre(genre)}
-                fontWeight={selectedGenre?.name === genre.name ? "bold" : ""}
+                fontWeight={selectedGenreId === genre.id ? "bold" : ""}
                 fontSize="lg"
                 variant="link"
                 whiteSpace="normal"
