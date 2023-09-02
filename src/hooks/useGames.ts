@@ -29,7 +29,7 @@ const useGames = (gameQuery: GameQuery) =>
           page: pageParam,
         },
       }),
-
+    staleTime: 24 * 60 * 60 * 1000, //24h
     // Next I should implement a function called "getNextPageParam". React Query calls this function to compute the next page number. This function should take two parameters.
     getNextPageParam: (lastPage, allPages) => {
       // allPages contains the data for each pages that I retrieve. So to compute the next page number ==>
