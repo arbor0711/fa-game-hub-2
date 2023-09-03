@@ -1,5 +1,8 @@
 // import useData from "./useData";
 import { useQuery } from "@tanstack/react-query";
+// This library is written in pure JS and doesn't include the type declaration that a TSC compiler needs so I have to install them separately.
+// So back to the terminal lets install
+import ms from "ms";
 import genres from "../data/genres";
 import APIClient from "../services/api-client";
 
