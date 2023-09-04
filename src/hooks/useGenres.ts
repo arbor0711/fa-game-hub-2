@@ -1,7 +1,9 @@
 // import useData from "./useData";
 import { useQuery } from "@tanstack/react-query";
 // This library is written in pure JS and doesn't include the type declaration that a TSC compiler needs so I have to install them separately.
-// So back to the terminal lets install
+// So back to the terminal lets install @types/ms BUT THE NOTE IS THAT I need types only during development, not for production. So I'm not going to ship them with our application to the client. SO I have to install this as a development dependency ====>
+// npm i --save-dev @types/ms
+// npm i D @types/ms
 import ms from "ms";
 import genres from "../data/genres";
 import APIClient from "../services/api-client";
@@ -19,6 +21,7 @@ const useGenres = () =>
     // BUT IT IS LIKE A HACK. WHAT IF tomorrow I want to add another property to fetchResponse. So, the better approach is to modify my static data, genre, and make it exactly like the response that I get from the backend. ===> to do so, first comment out the initialData line. So I get the data from backend. Then I store it in my data file. from network tab>response>copy the object and export it from genre.ts.
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
+    staleTime: ms("24h"),
     initialData: genres,
   });
 
