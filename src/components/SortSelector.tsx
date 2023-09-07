@@ -7,12 +7,9 @@ interface Props {
 }
 const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   const sortOrders = [
-    // for the first one I do not need value because that is the default sort order
     { value: "", label: "Relevance" },
-    // for date I use hyphen because I want to show the latest released game to users
     { value: "-added", label: "Date added" },
     { value: "name", label: "Name" },
-    // Again I want to show the newest games first
     { value: "-released", label: "Release date" },
     { value: "-metacritic", label: "Popularity" },
     { value: "-rating", label: "Average rating" },
