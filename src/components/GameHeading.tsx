@@ -1,18 +1,17 @@
 import { Heading } from "@chakra-ui/react";
-import { GameQuery } from "../App";
 import useGenre from "../hooks/useGenre";
 import usePlatform from "../hooks/usePlatform";
+import useGameQueryStore from "../store";
 
-interface Props {
-  gameQuery: GameQuery;
-}
+const GameHeading = () => {
+  // I retrieve genreId and platformId separately from gameQuery, to eliminate unnecessary re-rendering in my component.
+  const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const genre = useGenre(genreId);
 
-const GameHeading = ({ gameQuery }: Props) => {
-  const selectedPlatform = usePlatform(gameQuery.platformId);
-  const selectedGenre = useGenre(gameQuery.genreId);
-  const heading = `${selectedPlatform?.name || ""} ${
-    selectedGenre?.name || ""
-  } Games`;
+  const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const platform = usePlatform(platformId);
+
+  const heading = `${platform?.name || ""} ${genre?.name || ""} Games`;
   return (
     <Heading as="h1" marginY={5} fontSize="5xl">
       {heading}
