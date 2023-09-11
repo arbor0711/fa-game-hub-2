@@ -1,9 +1,9 @@
 // I should use tsx extension because here I'm going to reference React components
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../pages/Layout";
-import HomePage from "../pages/HomePage";
-import GameDetailPage from "../pages/GameDetailPage";
 import ErrorPage from "../pages/ErrorPage";
+import GameDetailPage from "../pages/GameDetailPage";
+import HomePage from "../pages/HomePage";
+import Layout from "../pages/Layout";
 
 const router = createBrowserRouter([
   {
