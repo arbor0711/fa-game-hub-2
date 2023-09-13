@@ -7,14 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 import ms from "ms";
 import genres from "../data/genres";
 import APIClient from "../services/api-client";
+import { Genre } from "../entities/Genre";
 
 const apiClient = new APIClient<Genre>("/genres");
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
-
 const useGenres = () =>
   useQuery({
     // I've got error "No overload matches this call." ===>There is really nothing wrong with the key, the problem is somewhere else. MOST OF THE TIME with queryFn or initialData. In here when I comment out the initialData line, the error goes away. If I look up the type of initial data, obviously this type is not compatible with my fetchResponse. Because I added next property to that but here in initialData I did not do the same. As soon as adding the next property to initialData, the error goes away.
