@@ -9,4 +9,5 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
   genres: string;
+  background_image_additional: string;
 }

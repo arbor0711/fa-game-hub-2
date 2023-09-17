@@ -12,7 +12,7 @@ const GameCardContainer = ({ children }: Props) => {
       _hover={{ base: "", md: { transform: "scale(1.03) " } }}
       transition={"transform 0.15s ease-in-out"}
     >
-      <a href="games/">{children}</a>
+      {children}
     </Box>
   );
 };

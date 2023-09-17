@@ -34,20 +34,20 @@ const ExpandableText = ({ children }: Props) => {
   const summary = children.substring(0, limit);
   return (
     <>
-      <Text>
-        {expanded ? children : summary + ". . ."}
-        <Button
-          onClick={() => setExpanded(!expanded)}
-          m={1}
-          size="sm"
-          fontWeight="bold"
-          bgGradient="linear(to-l, #7928CA, #FF0080)"
-          _hover={{ bgGradient: "linear(to-l, #1978CA, #FF0080)" }}
-          transition={"all 0.3s "}
-        >
-          {expanded ? "Show Less" : "Show More"}
-        </Button>
-      </Text>
+      <Text>{expanded ? children : summary + ". . ."}</Text>
+      <Button
+        onClick={() => setExpanded(!expanded)}
+        mt={3}
+        size="sm"
+        fontWeight="bold"
+        bgGradient="linear(to-l, #7928CA, #FF0080)"
+        _hover={{
+          bgGradient: "linear(to-l, #1978CA, #FF0080)",
+          transitionDuration: "2s",
+        }}
+      >
+        {expanded ? "Show Less" : "Show More"}
+      </Button>
     </>
   );
 };
