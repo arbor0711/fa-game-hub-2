@@ -8,6 +8,8 @@ import {
   Link,
   Heading,
   Icon,
+  Button,
+  Show,
 } from "@chakra-ui/react";
 import { BiGift } from "react-icons/bi";
 import { MdOutlineRateReview } from "react-icons/md";
@@ -61,7 +63,6 @@ const GameHeader = ({ game }: Props) => {
   return (
     isVisible && (
       <Box
-        className="game-header"
         p="10px"
         position={"fixed"}
         top={0}
@@ -75,37 +76,41 @@ const GameHeader = ({ game }: Props) => {
       >
         <HStack
           ref={ref}
-          className="game-header-wrapper"
           alignContent={"space-between"}
           justifyContent={"space-between"}
         >
           <HStack className="game-card-compact">
-            <ArrowUpIcon
-              _hover={{
-                transform: "translatey(-5px)",
-                transition: "transform .2s",
+            <Box
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
-            />
+              cursor="pointer"
+            >
+              <ArrowUpIcon
+                _hover={{
+                  transform: "translatey(-5px)",
+                  transition: "transform .2s",
+                }}
+              />
+            </Box>
 
             <Image
               src={game.background_image_additional}
               alt="Dan Abramov"
-              boxSize="100px"
+              boxSize="60px"
               borderRadius={"md"}
               objectFit={"cover"}
             />
-            <VStack
-              className="game-card-compact=info"
-              justifyContent={"start"}
-              alignItems={"flex-start"}
-              ml={3}
-            >
+            <VStack justifyContent={"start"} alignItems={"flex-start"} ml={3}>
               <PlatformIconList
                 platforms={game.parent_platforms.map((p) => p.platform)}
               />
 
-              <Heading fontSize={"md"}>{game.name}</Heading>
-              <HStack mt={2} justifyContent={"center"}>
+              <Heading fontSize={"sm"}>{game.name}</Heading>
+              <HStack justifyContent={"center"}>
                 <Link>
                   <Icon
                     p="1px"
@@ -125,7 +130,14 @@ const GameHeader = ({ game }: Props) => {
               </HStack>
             </VStack>
           </HStack>
-          <div className="game-header-menu">game-header-menu</div>
+          <Show above="xs">
+            <HStack fontSize={"xs"}>
+              <Link href="#about">About</Link>
+              <Link href="#created">Created by</Link>
+              <Link href="#streams">Streams</Link>
+              <Link href="#reviews">Reviews</Link>
+            </HStack>
+          </Show>
         </HStack>
       </Box>
     )
