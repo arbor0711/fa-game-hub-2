@@ -12,7 +12,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { BiGift } from "react-icons/bi";
 import { MdOutlineRateReview } from "react-icons/md";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 import PlatformIconList from "./PlatformIconList";
 
 interface Visibility {

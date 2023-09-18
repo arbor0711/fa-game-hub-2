@@ -1,5 +1,5 @@
-import { HStack, Heading, Text } from "@chakra-ui/react";
-import { Game } from "../entities/Game";
+import { HStack, Text } from "@chakra-ui/react";
+import Game from "../entities/Game";
 import PlatformIconList from "./PlatformIconList";
 
 interface Props {
