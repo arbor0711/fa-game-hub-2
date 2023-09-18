@@ -1,22 +1,18 @@
+import { ArrowUpIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Flex,
   HStack,
-  StackProps,
-  VStack,
-  Image,
-  Link,
   Heading,
   Icon,
-  Button,
+  Image,
+  Link,
   Show,
+  VStack,
 } from "@chakra-ui/react";
+import { useEffect, useRef, useState } from "react";
 import { BiGift } from "react-icons/bi";
 import { MdOutlineRateReview } from "react-icons/md";
-import React, { useEffect, useRef, useState, ReactNode } from "react";
-import { ArrowUpIcon } from "@chakra-ui/icons";
 import { Game } from "../entities/Game";
-import { platform } from "os";
 import PlatformIconList from "./PlatformIconList";
 
 interface Visibility {
@@ -29,7 +25,7 @@ interface Props {
   game: Game;
 }
 
-const GameHeader = ({ game }: Props) => {
+const GameDetailPageHeader = ({ game }: Props) => {
   const [isVisible, setIsVisible] = useState<Visibility>({
     height: "0",
     opacity: "0",
@@ -130,12 +126,21 @@ const GameHeader = ({ game }: Props) => {
               </HStack>
             </VStack>
           </HStack>
-          <Show above="xs">
+
+          <Show breakpoint="(min-width: 726px)">
             <HStack fontSize={"xs"}>
-              <Link href="#about">About</Link>
-              <Link href="#created">Created by</Link>
-              <Link href="#streams">Streams</Link>
-              <Link href="#reviews">Reviews</Link>
+              <Link mr={6} href="#about">
+                About
+              </Link>
+              <Link mr={6} href="#created">
+                Created by
+              </Link>
+              <Link mr={6} href="#streams">
+                Streams
+              </Link>
+              <Link mr={6} href="#reviews">
+                Reviews
+              </Link>
             </HStack>
           </Show>
         </HStack>
@@ -144,4 +149,4 @@ const GameHeader = ({ game }: Props) => {
   );
 };
 
-export default GameHeader;
+export default GameDetailPageHeader;
