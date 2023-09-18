@@ -132,14 +132,14 @@ const GameDetailPageHeader = ({ game }: Props) => {
               <Link mr={6} href="#about">
                 About
               </Link>
-              <Link mr={6} href="#created">
-                Created by
+              <Link mr={6} href="#screenshots">
+                Screenshots
               </Link>
-              <Link mr={6} href="#streams">
-                Streams
+              <Link mr={6} href="#metadata">
+                MetaData
               </Link>
-              <Link mr={6} href="#reviews">
-                Reviews
+              <Link mr={6} href="#gameplay">
+                Gameplay
               </Link>
             </HStack>
           </Show>
