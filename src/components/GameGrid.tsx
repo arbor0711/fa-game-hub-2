@@ -23,9 +23,9 @@ const GameGrid = () => {
       endMessage={<Text>No more data to load.</Text>}
     >
       <SimpleGrid
-        padding={"15px"}
+        padding={"10px"}
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={6}
+        spacing={4}
       >
         {isLoading &&
           skeletons.map((skeleton) => (
